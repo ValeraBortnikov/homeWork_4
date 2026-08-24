@@ -61,12 +61,16 @@ public class Main {
         short allPlace = 102;
         short seatPlace = 60;
         int stayPlace = allPlace - seatPlace;
-        int passengers = 300;
+        int passengers = 0;
 
-        if (passengers <= 102 && passengers != 0) {
+        if (passengers == 0) {
             System.out.println("В поезде есть " + seatPlace + " сидячих мест и " + stayPlace + " стоячих мест");
-        } else {
-            System.out.println("В вагоне нет свободных мест");
+        } else if (passengers < 60) {
+            System.out.println("В вагоне есть " + (seatPlace - passengers) + " сидячих мест");
+        } else if (passengers >= 60 && passengers < 102) {
+            System.out.println("В вагоне есть " + ((seatPlace - passengers) + stayPlace) + " стоячих мест");
+        } else if (passengers >= 102) {
+            System.out.println("Вагон полностью заполнен");
         }
 
         // Задача № 7
